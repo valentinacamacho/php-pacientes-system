@@ -1,17 +1,19 @@
 <?php
-require_once __DIR__ . '/../backend/config/connection.php';
-
-class Paciente {
+class PacienteModels {
     private $conexion;
-    public function __contruct($conexion){
+    public function __construct($conexion){
+      if(!$conexion){
+          die("Error: No recibió la conexcion de PacienteModels");
+      }
+    
         $this->conexion= $conexion;
     }
 
-    public function obtenerDatos(){
+   public function obtenerDatos() {
         $sql = "SELECT * FROM paciente";
-        $query = $this->conexion->prepare($sql);
-        $query->execute();
-        return $query->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 

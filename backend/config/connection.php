@@ -1,23 +1,16 @@
 <?php
-function cargarEntorno($ruta = __DIR__ . '/../../.env') {
-    if (!file_exists($ruta)) return;
-    $variables = parse_ini_file($ruta);
-    foreach ($variables as $key => $value) {
-        putenv("$key=$value");
-    }
-}
+$dotenv = parse_ini_file(__DIR__ . '/../.env');
 
-cargarEntorno();
-
-$host = getenv("DB_HOST");
-$db = getenv("DB_NAME");
-$user = getenv("DB_USER");
-$pass = getenv("DB_PASS");
+$host = $dotenv['DB_HOST'];
+$db = $dotenv['DB_NAME'];
+$user = $dotenv['DB_USER'];
+$pass = $dotenv['DB_PASS'];
 
 try {
-    $conexion = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+    $conexion = new PDO("mysql:host=$host;dbname=$db; charset=utf8", $user, $pass);
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Conexion exitosa de la base de datos '$db'";
-} catch (PDOException $e){
-    echo ("Error de conexión: " . $e->getMessage());
+    echo "Conectando a $db en $host como $user";
+} catch (PDOException $e) {
+    die(" Error de conexión: " . $e->getMessage());
 }
+?>

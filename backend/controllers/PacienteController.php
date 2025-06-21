@@ -1,18 +1,19 @@
 <?php
-require_once __DIR__ . '/../backend/models/PacienteModels.php';
+require_once __DIR__ . '/../models/PacienteModels.php';
 require_once __DIR__ . '/../config/connection.php';
 
 class PacienteController {
-    Private $modelo;
+    private $modelo;
+
     public function __construct(){
         global $conexion;
-        $this->modelo = new Paciente($conexion);
+        $this->modelo = new PacienteModels($conexion);
     }
 
- public function index()
-    {
+ public function index(){
         $pacientes = $this->modelo->obtenerDatos();
         header('Content-Type: application/json');
         echo json_encode($pacientes);
     }
 }
+
