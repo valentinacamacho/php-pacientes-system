@@ -11,9 +11,16 @@ class PacienteModels {
 
    public function obtenerDatos() {
         $sql = "SELECT * FROM paciente";
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $query = $this->conexion->prepare($sql);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function obtenerPorId($id) {
+        $sql = "SELECT * FROM paciente WHERE id = :id";
+        $query = $this->conexion->prepare($sql);
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 }
 
