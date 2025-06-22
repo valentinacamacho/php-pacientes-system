@@ -21,6 +21,25 @@ class PacienteController {
       header('Content-Type: application/json');
     }
 
+    public function store(){
+      $registerData =json_decode(file_get_contents("php://input"), true);
+
+      if(!$registerData) {
+        http_response_code(400);
+        echo json_encode(["Error: " => "Datos invalidos o faltantes"]);
+        return;
+      }
+
+      $resultado = $this->modelo->insertarPaciente($registerData);
+
+      if($resultado) {
+        http_response_code(201);
+        echo json_encode(["Mensaje:" => "Paciente registrado con éxito."]);
+      } else {
+        http_response_code(500);
+        echo json_encode(["Error: " => "No se pudo insertar el paciente."]);
+      }
+    }
 
 }
 
