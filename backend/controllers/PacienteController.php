@@ -68,5 +68,17 @@ class PacienteController {
 
     }
 
+    public function delete($id){
+      $id = trim($id);
+      $resultado = $this->modelo->eliminarPaciente($id);
+
+      if($resultado){
+        echo json_encode(["mensaje" => "Paciente eliminado correctamente"]);
+      } else {
+        http_response_code(500);
+        echo json_encode(["error" => "No se pudo eliminar el paciente"]);
+      }
+    }
+
 }
 

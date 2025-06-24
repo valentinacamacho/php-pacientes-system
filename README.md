@@ -130,6 +130,18 @@ http://localhost/sistema_pacientes/backend/routes/PacienteRoute.php?id=1 `
 - `400 Bad Request` – Cuando el JSON está vacío, inválido o faltan datos obligatorios.
 - `500 Interval Server Error` -  Cuando falla el proceso de inserción en la base de datos.
 
+
+### Eliminar paciente
+- **Método:** `DELETE`
+- **URL:** `
+http://localhost/sistema_pacientes/backend/routes/PacienteRoute.php?id=1 `
+- **Descripción:** Eliminar un paciente en la base de datos a partir de datos enviados en formato JSON.
+- **Código de respuesta posibles:**
+- `200 OK:` - Paciente eliminado correctamente.
+- `400 Bad Request` – No se proporciono el id.
+- `404 Not Found` Si el paciente no existe.
+- `500 Interval Server Error` -  Cuando falla el proceso de inserción en la base de datos.
+
 <p style="text-align: right;">
   <a href="#readme-top">volver arriba</a>
 </p>
