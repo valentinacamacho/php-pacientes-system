@@ -73,10 +73,10 @@ class PacienteController {
       $resultado = $this->modelo->eliminarPaciente($id);
 
       if($resultado){
-        echo json_encode(["mensaje" => "Paciente eliminado correctamente"]);
+        echo json_encode([" mensaje " => "Paciente eliminado correctamente"]);
       } else {
-        http_response_code(500);
-        echo json_encode(["error" => "No se pudo eliminar el paciente"]);
+        http_response_code(400);
+        echo json_encode([" error " => "No se pudo eliminar el paciente"]);
       }
     }
 

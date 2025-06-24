@@ -32,7 +32,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
         http_response_code(400);
         echo json_encode(["error" => "Se requiere ID para eliminar"]);
       }
-      
+    break;
+
   default:
     http_response_code(405);
     echo json_encode(["error" => "Método no permitido"]);
