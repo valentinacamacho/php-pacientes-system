@@ -19,6 +19,13 @@ class PacienteController {
     public function show($id) {
       $pacientes = $this->modelo->obtenerPorId($id);
       header('Content-Type: application/json');
+
+      if ($pacientes) {
+        echo json_encode($pacientes);
+    } else {
+        http_response_code(404);
+        echo json_encode(['error' => 'Paciente no encontrado']);
+    }
     }
 
     public function store(){
