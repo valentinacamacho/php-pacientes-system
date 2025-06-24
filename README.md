@@ -5,15 +5,8 @@
       <a href="#acerca-del-proyecto">Acerca del Proyecto</a>
       <ul>
         <li><a href="#objetivo-del-proyecto">Objetivo del Proyecto</a></li>
-        <li><a href="#tecnologias-utlizadas">Tecnologías Utilizadas</a></li>
-        <li><a href="#funcionalidades">Funcionalidades Implementadas</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#guia-inicial">Guía Inicial</a>
-      <ul>
-        <li><a href="#prerequisitos">Prerequisitos</a></li>
-        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#tecnologías-utilizadas">Tecnologías Utilizadas</a></li>
+        <li><a href="#endpoints-api---pacientes">Endpoints API - Pacientes</a></li>
       </ul>
     </li>
   </ol>
@@ -60,7 +53,7 @@ Desarrollar un sistema de gestión de pacientes mediante la implementación de u
 ---
 
 
-##  Endpoints del API - Pacientes
+##  Endpoints  API - Pacientes
 
 
 ###  Obtener todos los pacientes
@@ -101,7 +94,7 @@ Desarrollar un sistema de gestión de pacientes mediante la implementación de u
 }
 ````
 
-### Crear u nuevo paciente
+### Crear un nuevo paciente
 - **Método:** `POST`  
 - **URL:** `
 http://localhost/sistema_pacientes/backend/routes/PacienteRoute.php`  
@@ -126,7 +119,11 @@ http://localhost/sistema_pacientes/backend/routes/PacienteRoute.php`
   "correo": "lucia.ramirez@example.com"
 }
 ````
+<p style="text-align: right;">
+  <a href="#readme-top">volver arriba</a>
+</p>
 
+---
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
