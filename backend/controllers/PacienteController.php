@@ -33,7 +33,7 @@ class PacienteController {
 
       if(!$registerData) {
         http_response_code(400);
-        echo json_encode(["Error: " => "Datos invalidos o faltantes"]);
+        echo json_encode(["error" => "Datos invalidos o faltantes"]);
         return;
       }
 
@@ -41,11 +41,31 @@ class PacienteController {
 
       if($resultado) {
         http_response_code(201);
-        echo json_encode(["Mensaje:" => "Paciente registrado con éxito."]);
+        echo json_encode(["mensaje" => "Paciente registrado con éxito."]);
       } else {
         http_response_code(500);
-        echo json_encode(["Error: " => "No se pudo insertar el paciente."]);
+        echo json_encode(["error " => "No se pudo insertar el paciente."]);
       }
+    }
+
+    public function update($id) {
+      $registerData = json_decode(file_get_contents("php://input"), true);
+
+      if (!$registerData){
+        http_response_code(400);
+        echo json_encode(["error" => "Datos inválidos o faltantes"]);
+        return;
+      }
+
+      $resultado = $this->modelo->actualizarPaciente($id, $registerData);
+
+      if($resultado) {
+        echo json_encode(["mensaje" => "Paciente actualizado con éxito."]);
+      } else {
+        http_response_code(500);
+        echo json_encode(["error" => "Error al actualizar el paciente"]);
+      }
+
     }
 
 }

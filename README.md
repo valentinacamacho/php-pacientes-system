@@ -92,7 +92,7 @@ Desarrollar un sistema de gestión de pacientes mediante la implementación de u
   "municipio_id": 1,
   "correo": "andresperez@example.com"
 }
-````
+``` 
 
 ### Crear un nuevo paciente
 - **Método:** `POST`  
@@ -118,7 +118,18 @@ http://localhost/sistema_pacientes/backend/routes/PacienteRoute.php`
   "municipio_id": 5,
   "correo": "lucia.ramirez@example.com"
 }
-````
+```
+
+### Actualizar los datos del paciente
+- **Método:** `PUT`
+- **URL:** `
+http://localhost/sistema_pacientes/backend/routes/PacienteRoute.php?id=1 `
+- **Descripción:** Registra un nuevo paciente en la base de datos a partir de datos enviados en formato JSON.
+- **Código de respuesta posibles:**
+- `201 Created:` - Paciente creado correctamente.
+- `400 Bad Request` – Cuando el JSON está vacío, inválido o faltan datos obligatorios.
+- `500 Interval Server Error` -  Cuando falla el proceso de inserción en la base de datos.
+
 <p style="text-align: right;">
   <a href="#readme-top">volver arriba</a>
 </p>

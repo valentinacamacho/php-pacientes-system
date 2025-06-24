@@ -5,7 +5,7 @@ $controller = new PacienteController();
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
-        if (isset($_GET['id'])){
+        if (isset($_GET['id'])) {
             $controller->show($_GET['id']);
         } else {
             $controller->index();
@@ -16,9 +16,17 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $controller->store();
         break;
 
-       default:
+    case 'PUT':
+        if (isset($_GET['id'])) {
+            $controller->update($_GET['id']);
+        } else {
+            http_response_code(400);
+            echo json_encode(["Error" => "Se requiere ID para actualizar"]);
+        }
+        break;
+
+    default:
         http_response_code(405);
         echo json_encode(["error" => "Método no permitido"]);
         break;
 }
-
